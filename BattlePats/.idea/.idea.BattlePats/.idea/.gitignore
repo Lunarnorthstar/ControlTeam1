@@ -1,0 +1,13 @@
+﻿# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/contentModel.xml
+/modules.xml
+/projectSettingsUpdater.xml
+/.idea.BattlePats.iml
+# Datasource local storage ignored files
+/../../../../../../../../../../../:\Users\adamk\OneDrive\Documents\GitHub\ControlTeam1\BattlePats\.idea\.idea.BattlePats\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
