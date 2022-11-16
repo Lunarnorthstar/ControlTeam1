@@ -41,7 +41,7 @@ public class WinManager : MonoBehaviour
 
         timer -= Time.deltaTime;
         
-        if (timer == 0 || (activePlayers == 1 && gameStart))
+        if (timer == 0 /*|| (activePlayers == 1 && gameStart)*/)
         {
             FindWinner();
             
