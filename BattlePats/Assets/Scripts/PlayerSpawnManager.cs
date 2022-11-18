@@ -6,6 +6,7 @@ public class PlayerSpawnManager : MonoBehaviour
 {
     public Transform[] spawnPoints;
     public WinManager WM;
+    public GameObject[] healthUI;
     
     void OnPlayerJoined(PlayerInput playerInput)
     {
@@ -14,6 +15,7 @@ public class PlayerSpawnManager : MonoBehaviour
         playerInput.gameObject.transform.position = spawnPoints[playerInput.playerIndex].position;
 
         playerInput.gameObject.GetComponent<PlayerControls>().WM = WM;
+        playerInput.gameObject.GetComponent<PlayerControls>().healthUI = healthUI[playerInput.playerIndex];
         WM.activePlayers++;
     }
 }

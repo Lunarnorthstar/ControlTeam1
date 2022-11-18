@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 66126793994075617}
   - component: {fileID: 1669560413005454885}
   - component: {fileID: 1669560413005454886}
+  - component: {fileID: 2249693683086029354}
   m_Layer: 0
   m_Name: CarrotBase
   m_TagString: Untagged
@@ -112,4 +113,17 @@ MeshCollider:
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: -951608786083511892, guid: 8fe20175b1ca4f84a936eb802ac66d8a, type: 3}
+  m_Mesh: {fileID: -951608786083511892, guid: 3ecc237fd0f29b14dbdf709e4464f48a, type: 3}
+--- !u!114 &2249693683086029354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2011439460268989492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c23a4e8687faf204f8c4be402c90e2d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifetime: 30

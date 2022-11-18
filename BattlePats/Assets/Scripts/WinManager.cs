@@ -37,11 +37,11 @@ public class WinManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timerUI.GetComponent<Text>().text = "Seconds Left: " + Mathf.RoundToInt(timer);
+        timerUI.GetComponent<Text>().text = "" + Mathf.RoundToInt(timer);
 
         timer -= Time.deltaTime;
         
-        if (timer == 0 /*|| (activePlayers == 1 && gameStart)*/)
+        if (timer <= 0 /*|| (activePlayers == 1 && gameStart)*/)
         {
             FindWinner();
             

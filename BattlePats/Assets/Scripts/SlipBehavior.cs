@@ -17,5 +17,9 @@ public class SlipBehavior : MonoBehaviour
     void Update()
     {
         myMat.dynamicFriction =WM.timer / WM.GameTime;
+        if (myMat.dynamicFriction <= 0)
+        {
+            myMat.dynamicFriction = 0;
+        }
     }
 }

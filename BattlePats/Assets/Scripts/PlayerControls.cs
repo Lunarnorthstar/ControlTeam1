@@ -23,6 +23,7 @@ public class PlayerControls : MonoBehaviour
     private float timeAlive = 0;
     [Tooltip("How many seconds it takes to reach minimum mass")] public float meltTime = 60;
     [Tooltip("The multiplier for being in the hotspot")] public float hotSpotMult = 1;
+    public float meltMult = 1.2f;
 
     [Header("Scoring")] 
     public int lives = 3;
@@ -30,6 +31,8 @@ public class PlayerControls : MonoBehaviour
     public int hotSpotScoreRate = 1;
 
     public float score = 0;
+
+    public GameObject healthUI;
     
     
     
@@ -55,6 +58,17 @@ public class PlayerControls : MonoBehaviour
 
 
         timeAlive += Time.deltaTime;
+
+        RectTransform[] pips = healthUI.GetComponentsInChildren<RectTransform>();
+
+        for (int i = 0; i < pips.Length; i++)
+        {
+            pips[i].gameObject.SetActive(false);
+        }
+        for (int i = 0; i <= lives; i++)
+        {
+            pips[i].gameObject.SetActive(true);
+        }
 
         if (lives == 0)
         {
@@ -91,6 +105,11 @@ public class PlayerControls : MonoBehaviour
         {
             score += hotSpotScoreRate * Time.deltaTime;
             timeAlive += Time.deltaTime * (hotSpotMult - 1);
+        }
+
+        if (other.tag == "Melter")
+        {
+            timeAlive += Time.deltaTime * (meltMult - 1);
         }
     }
 
