@@ -251,9 +251,11 @@ MonoBehaviour:
   impulse: 1000
   meltTime: 60
   hotSpotMult: 1
+  meltMult: 1.2
   lives: 3
   hotSpotScoreRate: 1
   score: 0
+  healthUI: {fileID: 0}
 --- !u!96 &-2891258700710308395
 TrailRenderer:
   serializedVersion: 2

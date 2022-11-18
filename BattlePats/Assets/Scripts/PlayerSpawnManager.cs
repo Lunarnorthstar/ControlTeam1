@@ -7,6 +7,7 @@ public class PlayerSpawnManager : MonoBehaviour
     public Transform[] spawnPoints;
     public WinManager WM;
     public GameObject[] healthUI;
+    public Material[] playerColor;
     
     void OnPlayerJoined(PlayerInput playerInput)
     {
@@ -16,6 +17,8 @@ public class PlayerSpawnManager : MonoBehaviour
 
         playerInput.gameObject.GetComponent<PlayerControls>().WM = WM;
         playerInput.gameObject.GetComponent<PlayerControls>().healthUI = healthUI[playerInput.playerIndex];
+        playerInput.gameObject.GetComponent<MeshRenderer>().material = playerColor[playerInput.playerIndex];
+        
         WM.activePlayers++;
     }
 }
