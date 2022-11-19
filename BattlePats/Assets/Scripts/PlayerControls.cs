@@ -15,7 +15,7 @@ public class PlayerControls : MonoBehaviour
     private Vector3 startPos;
 
     [Header("Jumping")] 
-    public float jumpImpulse = 100f;
+    public float jumpDist = 1;
     
     [Header("Movement")]
     [Tooltip("Values less than 900 may not have enough force to move the player")] public float impulse = 1000f;
@@ -24,6 +24,8 @@ public class PlayerControls : MonoBehaviour
     [Tooltip("How many seconds it takes to reach minimum mass")] public float meltTime = 60;
     [Tooltip("The multiplier for being in the hotspot")] public float hotSpotMult = 1;
     public float meltMult = 1.2f;
+    public float startMass = 1;
+    public float minMass = 0.2f;
 
     [Header("Scoring")] 
     public int lives = 3;
@@ -50,10 +52,10 @@ public class PlayerControls : MonoBehaviour
     {
         RB.AddForce(new Vector3(inputVector.x,0,inputVector.y) * impulse * Time.deltaTime);
 
-        RB.mass = (1 - (timeAlive / meltTime));
-        if (RB.mass <= 0)
+        RB.mass = (startMass - (timeAlive / meltTime));
+        if (RB.mass <= minMass)
         {
-            RB.mass = 0.01f;
+            RB.mass = minMass;
         }
 
 
@@ -79,7 +81,7 @@ public class PlayerControls : MonoBehaviour
 
     public void Jump()
     {
-        RB.AddForce(new Vector3(0,jumpImpulse,0));
+        transform.Translate(new Vector3(0,0,-jumpDist));
     }
 
     private void Respawn()

@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 3659964891069345739}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -4.9423237, y: 0.26, z: -10.18}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -247,11 +247,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WM: {fileID: 0}
   playerID: 0
-  jumpImpulse: 150
+  jumpDist: 0
   impulse: 1000
   meltTime: 60
   hotSpotMult: 1
   meltMult: 1.2
+  startMass: 0.9
+  minMass: 0.5
   lives: 3
   hotSpotScoreRate: 1
   score: 0
@@ -296,8 +298,8 @@ TrailRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Time: 3
+  m_SortingOrder: -1
+  m_Time: 2
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1

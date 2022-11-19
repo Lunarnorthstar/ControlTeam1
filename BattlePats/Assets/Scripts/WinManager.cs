@@ -16,18 +16,21 @@ public class WinManager : MonoBehaviour
 
     public GameObject startingUI;
     public GameObject timerUI;
+    public GameObject timerImage;
     public GameObject endUI;
 
     public Text resultsText;
     // Start is called before the first frame update
     void Start()
     {
+        timerImage.GetComponentInParent<Animator>().StopPlayback();
         Time.timeScale = 0;
         timer = GameTime;
     }
 
     public void StartButton()
     {
+        
         Time.timeScale = 1;
         gameStart = true;
         startingUI.SetActive(false);
@@ -40,8 +43,19 @@ public class WinManager : MonoBehaviour
         timerUI.GetComponent<Text>().text = "" + Mathf.RoundToInt(timer);
 
         timer -= Time.deltaTime;
+
+
+        if (timer <= 30)
+        {
+            timerImage.GetComponentInParent<Animator>().Play("Alarm");
+        }
+        else
+        {
+            timerImage.GetComponentInParent<Animator>().Play("NotAlarm");
+        }
         
-        if (timer <= 0 /*|| (activePlayers == 1 && gameStart)*/)
+        
+        if (timer <= 0 || (activePlayers == 1 && gameStart))
         {
             FindWinner();
             
@@ -50,7 +64,7 @@ public class WinManager : MonoBehaviour
             endUI.SetActive(true);
             resultsText.text = "The Butter Royale is over! \n Butter " +
                                (winner.GetComponent<PlayerControls>().playerID + 1) + " Wins! \n They had " +
-                               winner.GetComponent<PlayerControls>().score + " seconds in the hotspot," +
+                               Mathf.RoundToInt(winner.GetComponent<PlayerControls>().score) + " seconds in the hotspot," +
                                " and weren't dead!";
         }
     }

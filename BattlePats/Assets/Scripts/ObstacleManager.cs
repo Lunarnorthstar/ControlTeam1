@@ -45,16 +45,16 @@ public class ObstacleManager : MonoBehaviour
             {
                 case 0:
                     Instantiate(obstaclePrefabs[type],
-                        new Vector3(Random.Range(-panRadius, panRadius), 0, Random.Range(-panRadius, panRadius)),
+                        new Vector3(Random.Range(-panRadius, panRadius), -1, Random.Range(-panRadius, panRadius)),
                         Quaternion.identity);
                     break;
                 case 1: Instantiate(obstaclePrefabs[type],
-                    new Vector3(Random.Range(-panRadius, panRadius), -40, Random.Range(-panRadius, panRadius)),
+                    new Vector3(Random.Range(-panRadius, panRadius), -21, Random.Range(-panRadius, panRadius)),
                     Quaternion.identity);
                     break;
                 case 2: Instantiate(obstaclePrefabs[type],
                     new Vector3(Random.Range(-panRadius, panRadius), 10, Random.Range(-panRadius, panRadius)),
-                    new Quaternion(90, 0, 0, 0));
+                    new Quaternion(0, 0, 0, 0));
                     break;
                 case 3: Instantiate(obstaclePrefabs[type],
                     new Vector3(Random.Range(-panRadius, panRadius), 10, Random.Range(-panRadius, panRadius)),
